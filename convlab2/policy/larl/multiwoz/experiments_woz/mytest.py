@@ -11,11 +11,14 @@ import convlab2.policy.larl.multiwoz.latent_dialog.corpora as corpora
 from convlab2.policy.larl.multiwoz.latent_dialog.data_loaders import BeliefDbDataLoaders
 from convlab2.policy.larl.multiwoz.latent_dialog.evaluators import MultiWozEvaluator
 from convlab2.policy.larl.multiwoz.latent_dialog.models_task import SysPerfectBD2Cat
+
 from convlab2.policy.larl.multiwoz.latent_dialog.main import train, validate
 import convlab2.policy.larl.multiwoz.latent_dialog.domain as domain
 from convlab2.policy.larl.multiwoz.experiments_woz.dialog_utils import task_generate
 from numpy import array
 import torch
+
+from convlab2.policy.larl.multiwoz.latent_dialog.models_task import SysPerfectBD2Gauss
 
 from convlab2.policy.larl.multiwoz.latent_dialog.corpora import EOS, PAD
 
@@ -109,7 +112,8 @@ test_data = BeliefDbDataLoaders('Test', test_dial, config)
 
 evaluator = MultiWozEvaluator('SysWoz')
 
-model = SysPerfectBD2Cat(corpus, config)
+# model = SysPerfectBD2Cat(corpus, config)
+model = SysPerfectBD2Gauss(corpus, config)
 
 if config.use_gpu:
     model.cuda()
