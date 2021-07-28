@@ -77,7 +77,7 @@ config = Pack(
     preview_batch_num=None,
     k=domain_info.input_length(),
     init_range=0.1,
-    pretrain_folder='2019-06-20-21-43-06-sl_cat',
+    pretrain_folder='2018-11-26-17-37-06-sys_sl_bdu2gauss',
     forward_only=False
 )
 set_seed(config.seed)
